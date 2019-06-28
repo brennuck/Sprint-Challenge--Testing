@@ -19,10 +19,18 @@
 	},
 	"homepage": "https://github.com/LambdaSchool/Sprint-Challenge--Testing#readme",
 	"dependencies": {
-		"express": "^4.16.4"
+		"@babel/preset-es2015": "^7.0.0-beta.53",
+		"babel": "^6.23.0",
+		"babel-cli": "^6.26.0",
+		"babel-preset-es2015": "^6.24.1",
+		"express": "^4.17.1",
+		"nodemon": "^1.19.1"
 	},
 	"devDependencies": {
 		"jest": "^23.6.0",
-		"supertest": "^3.3.0"
+		"supertest": "^3.4.2"
+	},
+	"jest": {
+		"testEnvirnoment": "node"
 	}
 }
