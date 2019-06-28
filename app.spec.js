@@ -37,4 +37,27 @@ describe("server", () => {
       expect(Array.isArray(res.body)).toBe(true);
     });
   });
+  describe("POST /games", () => {
+    it("returns status code 422 if fields are empty", async () => {
+      const res = await request(server)
+        .post("/games")
+        .send({ title: "Metal Slugg", releaseYear: 1984 });
+
+      expect(res.status).toBe(422);
+    });
+    it("returns status code 201", async () => {
+      const res = await request(server)
+        .post("/games")
+        .send({ title: "Pokemon Red", genre: "RPG" });
+
+      expect(res.status).toBe(201);
+    });
+    it("returns message that game was added", async () => {
+      const res = await request(server)
+        .post("/games")
+        .send({ title: "Mario", genre: "Arcade", releaseYear: 1998 });
+
+      expect(res.body).toEqual({ message: `Mario has been added` });
+    });
+  });
 });
